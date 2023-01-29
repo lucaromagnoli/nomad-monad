@@ -1,0 +1,35 @@
+{% load bootstrap_icons %}
+<div class="container">
+    <footer class="bg-light p-4">
+        <div class="text-secondary">
+            <div class="d-flex flex-row justify-content-center">
+                <div class="p-1">Built with:</div>
+                <div class="p-1">
+                    <a href="{{ django_url }}" class="link-secondary" target="_blank">
+                        {{ django_version }}
+                    </a>
+                </div>
+                <div class="p-1">
+                    <a href="{{ bootstrap_url }}" class="link-secondary" target="_blank">
+                        {{ bootstrap_version }}
+                    </a>
+                </div>
+                <div class="p-1">
+                    Source code available at
+                </div>
+                <div class="p-1">
+                    <a href="{{ repo_url }}" class="link-secondary" target="_blank">
+                        {{ repo_url }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="text-dark"/>
+        <!-- Copyright -->
+        <div class="text-center text-dark">
+            © {{ copyright_year }} Copyright:
+            <a class="text-dark" href="{{ site_url }}">{{ site_name }}</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
