@@ -1,2 +1,2 @@
-# nomad-monad
+# Nomad Monad
 My own website
