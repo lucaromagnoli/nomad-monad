@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 
@@ -8,4 +10,24 @@ class Experience(models.Model):
     end_date = models.DateField()
     role = models.CharField(max_length=30)
     description = models.TextField()
-    tech = models.JSONField()
+    technologies: dict = models.JSONField(blank=True, null=True)
+
+    class Meta:
+        ordering = ["-start_date"]
+
+    def __str__(self):
+        return f"{self.role}@{self.company_name} {self.period}"
+    @property
+    def period(self) -> str:
+        start = self.start_date.strftime("%b %Y")
+        if self.end_date == datetime.datetime.now().date():
+            end = "present"
+        else:
+            end = self.end_date.strftime("%b %Y")
+        return f"{start} to {end}"
+
+    @property
+    def tech_stack(self):
+        for name, libraries in self.technologies.items():
+            yield name, libraries
+
