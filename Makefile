@@ -79,3 +79,9 @@ requirements-dev:
 
 heroku-deploy:
 	git push heroku main
+
+heroku-migrate:
+	heroku run python manage.py migrate
+
+heroku-migrations:
+	heroku run python manage.py makemigrations

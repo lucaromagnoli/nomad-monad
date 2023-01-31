@@ -4,6 +4,7 @@ Django settings for Nomad Monad project.
 import os
 from pathlib import Path
 
+import dj_database_url
 import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -74,25 +75,7 @@ WSGI_APPLICATION = "project.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-def get_default_db():
-    if DEBUG:
-        default = {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    else:
-        default = {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.environ["WEBAPP_DB_NAME"],
-            "USER": os.environ["WEBAPP_DB_USER"],
-            "PASSWORD": os.environ["WEBAPP_DB_PASSWORD"],
-            "HOST": os.environ["WEBAPP_DB_HOST"],
-            "PORT": os.environ.get("WEBAPP_DB_PORT", "5432"),
-        }
-    return default
-
-
-DATABASES = {"default": get_default_db()}
+DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
 
 
 # Password validation

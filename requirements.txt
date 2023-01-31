@@ -21,9 +21,12 @@ cryptography==39.0.0
     #   pyhanko-certvalidator
 cssselect2==0.7.0
     # via svglib
+dj-database-url==1.2.0
+    # via da-ayr-webapp (pyproject.toml)
 django==4.1.5
     # via
     #   da-ayr-webapp (pyproject.toml)
+    #   dj-database-url
     #   django-bootstrap-icons
     #   django-bootstrap5
 django-bootstrap-icons==0.8.2
@@ -92,9 +95,7 @@ tinycss2==1.2.1
     #   cssselect2
     #   svglib
 typing-extensions==4.4.0
-    # via
-    #   pypdf
-    #   qrcode
+    # via qrcode
 tzdata==2022.7
     # via pytz-deprecation-shim
 tzlocal==4.2
