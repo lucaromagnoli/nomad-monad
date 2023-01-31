@@ -75,3 +75,7 @@ requirements-dev:
 	docker build --target=test -t $(TEST_TAG) . &&\
  	docker run --name=$(TEST_NAME) $(TEST_NAME) pip-compile --extra dev -o requirements-dev.txt pyproject.toml &&\
  	docker cp $(TEST_NAME):/code/requirements-dev.txt ./requirements-dev.txt
+
+
+heroku-deploy:
+	git push heroku main
