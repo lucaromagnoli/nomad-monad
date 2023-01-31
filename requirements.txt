@@ -60,6 +60,8 @@ pypng==0.20220715.0
     # via qrcode
 python-bidi==0.4.2
     # via xhtml2pdf
+python-dotenv==0.21.1
+    # via da-ayr-webapp (pyproject.toml)
 pytz==2022.7.1
     # via pyhanko
 pytz-deprecation-shim==0.1.0.post0

@@ -18,9 +18,8 @@ COPY templates/ /code/templates
 COPY manage.py /code
 
 FROM build as test
-COPY tests /code/tests
+#COPY tests /code/tests
 COPY requirements-dev.txt /code
-COPY tests.sh /code
 COPY tox.ini /code
 COPY pyproject.toml /code
 RUN pip install --upgrade pip && pip install -r requirements-dev.txt --no-cache-dir
