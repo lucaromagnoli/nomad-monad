@@ -73,6 +73,7 @@ WSGI_APPLICATION = "project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 def get_default_db():
     if DEBUG:
         default = {
@@ -91,9 +92,7 @@ def get_default_db():
     return default
 
 
-DATABASES = {
-    "default": get_default_db()
-}
+DATABASES = {"default": get_default_db()}
 
 
 # Password validation

@@ -17,6 +17,7 @@ class Experience(models.Model):
 
     def __str__(self):
         return f"{self.role}@{self.company_name} {self.period}"
+
     @property
     def period(self) -> str:
         start = self.start_date.strftime("%b %Y")
@@ -30,4 +31,3 @@ class Experience(models.Model):
     def tech_stack(self):
         for name, libraries in self.technologies.items():
             yield name, libraries
-
