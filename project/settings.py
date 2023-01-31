@@ -13,7 +13,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
@@ -86,7 +85,7 @@ def get_default_db():
             "NAME": os.environ["WEBAPP_DB_NAME"],
             "USER": os.environ["WEBAPP_DB_USER"],
             "PASSWORD": os.environ["WEBAPP_DB_PASSWORD"],
-            "HOST": os.environ.get("WEBAPP_DB_HOST", "webapp-db"),
+            "HOST": os.environ["WEBAPP_DB_HOST"],
             "PORT": os.environ.get("WEBAPP_DB_PORT", "5432"),
         }
     return default

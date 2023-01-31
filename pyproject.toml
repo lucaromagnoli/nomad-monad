@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "da-ayr-webapp"
+version = "0"
+
+dependencies = [
+    "django-bootstrap-icons==0.8.2",
+    "django-bootstrap5==22.2",
+    "django==4.1.5",
+    "gunicorn==20.1.0",
+    "psycopg2-binary==2.9.5",
+    "xhtml2pdf==0.2.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "pip-tools",
+    "pytest",
+    "pytest-django",
+]
