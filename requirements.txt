@@ -22,24 +22,24 @@ cryptography==39.0.0
 cssselect2==0.7.0
     # via svglib
 dj-database-url==1.2.0
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 django==4.1.5
     # via
-    #   da-ayr-webapp (pyproject.toml)
     #   dj-database-url
     #   django-bootstrap-icons
     #   django-bootstrap5
     #   djangorestframework
+    #   resume (pyproject.toml)
 django-bootstrap-icons==0.8.2
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 django-bootstrap5==22.2
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 django-rest-framework==0.1.0
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 djangorestframework==3.14.0
     # via django-rest-framework
 gunicorn==20.1.0
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 html5lib==1.1
     # via xhtml2pdf
 idna==3.4
@@ -53,7 +53,7 @@ pillow==9.4.0
     #   reportlab
     #   xhtml2pdf
 psycopg2-binary==2.9.5
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 pycparser==2.21
     # via cffi
 pyhanko==0.16.0
@@ -69,7 +69,7 @@ pypng==0.20220715.0
 python-bidi==0.4.2
     # via xhtml2pdf
 python-dotenv==0.21.1
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 pytz==2022.7.1
     # via
     #   djangorestframework
@@ -117,6 +117,6 @@ webencodings==0.5.1
     #   html5lib
     #   tinycss2
 whitenoise==6.3.0
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
 xhtml2pdf==0.2.9
-    # via da-ayr-webapp (pyproject.toml)
+    # via resume (pyproject.toml)
