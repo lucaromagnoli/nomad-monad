@@ -116,5 +116,7 @@ webencodings==0.5.1
     #   cssselect2
     #   html5lib
     #   tinycss2
+whitenoise==6.3.0
+    # via da-ayr-webapp (pyproject.toml)
 xhtml2pdf==0.2.9
     # via da-ayr-webapp (pyproject.toml)
