@@ -24,13 +24,19 @@
                     <div class="card-footer">
                         <p class="text-muted  border-secondary mb-0">Tech Stack</p>
                         {% for tech_name, tech_libraries in experience.tech_stack %}
-                            <div class="d-flex align-items-baseline">
-                                <div class="px-1 fw-light">{{ tech_name }}</div>
-                                {% for library in tech_libraries %}
-                                    <div class="px-1 fw-lighter">
-                                        {{ library }}
+                            <div class="row">
+                                <div class="col-md-auto">
+                                    <div class="px-1 fw-light">{{ tech_name }}</div>
+                                </div>
+                                <div class="col-md-auto">
+                                    <div class="d-flex flex-row align-items-start flex-wrap text-left">
+                                        {% for library in tech_libraries %}
+                                            <div class="px-1 fw-lighter">
+                                                {{ library }}
+                                            </div>
+                                        {% endfor %}
                                     </div>
-                                {% endfor %}
+                                </div>
                             </div>
                         {% endfor %}
                     </div>
