@@ -29,10 +29,15 @@ django==4.1.5
     #   dj-database-url
     #   django-bootstrap-icons
     #   django-bootstrap5
+    #   djangorestframework
 django-bootstrap-icons==0.8.2
     # via da-ayr-webapp (pyproject.toml)
 django-bootstrap5==22.2
     # via da-ayr-webapp (pyproject.toml)
+django-rest-framework==0.1.0
+    # via da-ayr-webapp (pyproject.toml)
+djangorestframework==3.14.0
+    # via django-rest-framework
 gunicorn==20.1.0
     # via da-ayr-webapp (pyproject.toml)
 html5lib==1.1
@@ -66,7 +71,9 @@ python-bidi==0.4.2
 python-dotenv==0.21.1
     # via da-ayr-webapp (pyproject.toml)
 pytz==2022.7.1
-    # via pyhanko
+    # via
+    #   djangorestframework
+    #   pyhanko
 pytz-deprecation-shim==0.1.0.post0
     # via tzlocal
 pyyaml==6.0

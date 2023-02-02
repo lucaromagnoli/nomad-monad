@@ -10,12 +10,12 @@ dependencies = [
     "dj_database_url==1.2.0",
     "django-bootstrap-icons==0.8.2",
     "django-bootstrap5==22.2",
+    "django-rest-framework==0.1.0",
     "django==4.1.5",
     "gunicorn==20.1.0",
     "psycopg2-binary==2.9.5",
     "python-dotenv==0.21.1",
     "xhtml2pdf==0.2.9",
-
 ]
 
 [project.optional-dependencies]
