@@ -35,7 +35,8 @@ def contact(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = form.cleaned_data["name"]
+            subject = form.cleaned_data["subject"]
+            name = form.cleaned_data["name"]
             email = form.cleaned_data["email"]
             message = form.cleaned_data["message"]
             try:
@@ -44,3 +45,7 @@ def contact(request):
                 return HttpResponse("Invalid header found.")
             return redirect("success")
     return render(request, "contact.html", {"form": form})
+
+
+def success(request):
+    return HttpResponse("Thanks for your message!")

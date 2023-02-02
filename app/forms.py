@@ -8,7 +8,16 @@ class ContactForm(forms.Form):
             attrs={
                 "class": "form-control",
                 "style": "max-width: 300px;",
-                "placeholder": "Email",
+                "placeholder": "subject",
+            }
+        )
+    )
+    name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "style": "max-width: 300px;",
+                "placeholder": "name",
             }
         )
     )
@@ -17,7 +26,7 @@ class ContactForm(forms.Form):
             attrs={
                 "class": "form-control",
                 "style": "max-width: 300px;",
-                "placeholder": "Email",
+                "placeholder": "email",
             }
         )
     )
@@ -26,7 +35,7 @@ class ContactForm(forms.Form):
             attrs={
                 "class": "form-control",
                 "style": "max-width: 300px;",
-                "placeholder": "Message",
+                "placeholder": "message",
             }
         )
     )
