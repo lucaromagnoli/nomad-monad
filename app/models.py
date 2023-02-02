@@ -29,7 +29,9 @@ class Experience(models.Model):
 
     @property
     def tech_stack(self):
-        sorted_items = sorted(self.technologies.items(), key=lambda tech: tech[1]["order"])
+        sorted_items = sorted(
+            self.technologies.items(), key=lambda tech: tech[1]["order"]
+        )
         for tech_item in sorted_items:
             tech_name, tech_config = tech_item
             yield tech_name, tech_config.get("libraries", [])
