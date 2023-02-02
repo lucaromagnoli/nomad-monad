@@ -1,0 +1,15 @@
+{% extends "base_template.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="container mt-3">
+        <h1>Get in touch</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-actions">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
