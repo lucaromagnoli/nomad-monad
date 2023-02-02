@@ -1,29 +1,32 @@
 from django import forms
-from django.forms import ModelForm, TextInput, EmailInput
+from django.forms import ModelForm, TextInput, EmailInput, Textarea
 
 
 class ContactForm(forms.Form):
-    from_email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
-
-
-class UserInfoForm(forms.Form):
-    class Meta:
-        fields = ["name", "email", "message"]
-        widgets = {
-            "name": TextInput(
-                attrs={
-                    "class": "form-control",
-                    "style": "max-width: 300px;",
-                    "placeholder": "Name",
-                }
-            ),
-            "email": EmailInput(
-                attrs={
-                    "class": "form-control",
-                    "style": "max-width: 300px;",
-                    "placeholder": "Email",
-                }
-            ),
-        }
+    subject = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "style": "max-width: 300px;",
+                "placeholder": "Email",
+            }
+        )
+    )
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                "class": "form-control",
+                "style": "max-width: 300px;",
+                "placeholder": "Email",
+            }
+        )
+    )
+    message = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                "class": "form-control",
+                "style": "max-width: 300px;",
+                "placeholder": "Message",
+            }
+        )
+    )
