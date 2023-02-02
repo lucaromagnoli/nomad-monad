@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "da-ayr-webapp"
+name = "resume"
 version = "0"
 
 dependencies = [
