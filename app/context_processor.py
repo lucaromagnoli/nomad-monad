@@ -20,7 +20,7 @@ def context_processor(request):
     context["django_version"] = f"Django {django.get_version()}"
     context["bootstrap_url"] = "https://getbootstrap.com/"
     context["bootstrap_version"] = f"Bootstrap {get_bootstrap_version()}"
-    context["repo_url"] = "https://github.com/lucaromagnoli/nomad-monad"
+    context["repo_url"] = "https://github.com/lucaromagnoli/resume"
     context["site_url"] = ""
     context["site_name"] = "Luca Romagnoli"
     context["copyright_year"] = datetime.datetime.now().year

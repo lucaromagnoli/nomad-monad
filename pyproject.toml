@@ -4,7 +4,15 @@ build-backend = "hatchling.build"
 
 [project]
 name = "resume"
+description = "My online resume"
 version = "0"
+license = "MIT"
+authors = [
+    "Luca Romagnoli <romagnoli.luca@gmail.com>",
+]
+homepage = "https://lr-resume.herokuapp.com"
+repository = "https://github.com/lucaromagnoli/resume"
+
 
 dependencies = [
     "dj_database_url==1.2.0",
@@ -27,3 +35,4 @@ dev = [
     "pytest",
     "pytest-django",
 ]
+
