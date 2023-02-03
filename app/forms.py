@@ -7,7 +7,7 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "style": "max-width: 300px;",
+                # "style": "max-width: 600px;",
                 "placeholder": "subject",
             }
         )
@@ -16,7 +16,6 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "style": "max-width: 300px;",
                 "placeholder": "name",
             }
         )
@@ -25,7 +24,6 @@ class ContactForm(forms.Form):
         widget=forms.EmailInput(
             attrs={
                 "class": "form-control",
-                "style": "max-width: 300px;",
                 "placeholder": "email",
             }
         )
@@ -34,7 +32,6 @@ class ContactForm(forms.Form):
         widget=forms.Textarea(
             attrs={
                 "class": "form-control",
-                "style": "max-width: 300px;",
                 "placeholder": "message",
             }
         )
