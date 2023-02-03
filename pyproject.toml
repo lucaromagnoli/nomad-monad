@@ -16,6 +16,7 @@ dependencies = [
     "python-dotenv==0.21.1",
     "whitenoise==6.3.0",
     "xhtml2pdf==0.2.9",
+    "django-active-link==0.1.8"
 ]
 
 [project.optional-dependencies]

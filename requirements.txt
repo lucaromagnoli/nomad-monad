@@ -30,6 +30,8 @@ django==4.1.5
     #   django-bootstrap5
     #   djangorestframework
     #   resume (pyproject.toml)
+django-active-link==0.1.8
+    # via resume (pyproject.toml)
 django-bootstrap-icons==0.8.2
     # via resume (pyproject.toml)
 django-bootstrap5==22.2
