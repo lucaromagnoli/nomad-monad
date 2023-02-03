@@ -1,5 +1,8 @@
 {% load bootstrap_icons %}
+{% load active_link_tags %}
+
 <div class="container">
+    <!-- Banner -->
     <div class="text-light bg-dark light-text p-4 rounded-lg">
         <div class="row align-items-end">
             <div class="col-8">
@@ -28,19 +31,25 @@
 
         </div>
     </div>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="history">History</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact">Contact</a>
-                </li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item {% active_link 'profile' 'active' %}">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item {% active_link 'history' 'active' %}">
+                        <a class="nav-link" href="{% url 'history' %}">History</a>
+                    </li>
+                    <li class="nav-item {% active_link 'contact' 'active' %}">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </div>
