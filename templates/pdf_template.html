@@ -55,10 +55,25 @@
 </div>
 
 <!-- Content for Static Frame 'footer_frame' -->
-<div id="footer_content">(c) - page
-    <pdf:pagenumber>
-        of
-        <pdf:pagecount>
+<div id="footer_content">
+    <table>
+        <tr>
+            <td>
+                (c) - page <pdf:pagenumber> of<pdf:pagecount>
+            </td>
+            <td>
+                <p style="font-size: 8px">Get the most up-to-date version of my CV at
+                    <a href="{{ url }}" target="_blank">
+                        {{ url }}
+                    </a>
+
+                </p>
+            </td>
+        </tr>
+    </table>
+
+
+
 </div>
 <div>
     {% for experience in experiences %}
@@ -106,9 +121,6 @@
         </div>
         <p class="separator">&nbsp;<p>
     {% endfor %}
-
 </div>
-
-
 </body>
 </html>

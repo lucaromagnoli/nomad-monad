@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponse, BadHeaderError
 from django.shortcuts import render, redirect
-from django.template import loader
+from django.template import loader, RequestContext
 from django.views.generic import View
 
 from app.models import Experience
@@ -42,16 +42,8 @@ def contact(request):
     return render(request, "contact.html", {"form": form})
 
 
-def download_pdf(request):
-    template = "history.html"
-    experiences = Experience.objects.all()
-    context = {"experiences": experiences}
-    return render(request, template, context)
-
-
 def generate_pdf(request):
     experiences = Experience.objects.all()
-
-    context = {"experiences": experiences}
+    context = {"experiences": experiences, "url": request.build_absolute_uri()}
     pdf = html_to_pdf("pdf_template.html", context)
     return HttpResponse(pdf, content_type="application/pdf")
