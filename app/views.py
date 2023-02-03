@@ -24,8 +24,9 @@ def history(request):
 
 def generate_pdf(request):
     experiences = Experience.objects.all()
+
     context = {"experiences": experiences}
-    pdf = html_to_pdf("history.html", context)
+    pdf = html_to_pdf("pdf_template.html", context)
     return HttpResponse(pdf, content_type="application/pdf")
 
 

@@ -1,0 +1,114 @@
+<html>
+<head>
+    <style>
+        table {
+            -pdf-keep-with-next: true;
+        }
+
+        table, th, td {
+            padding: 2px;
+        }
+
+        p {
+            margin: 0;
+            -pdf-keep-with-next: true;
+        }
+
+        p.separator {
+            -pdf-keep-with-next: false;
+            font-size: 6pt;
+        }
+
+        mystyle {
+            background: blueviolet;
+        }
+
+        @page {
+            size: a4 portrait;
+            @frame header_frame { /* Static Frame */
+                -pdf-frame-content: header_content;
+                left: 50pt;
+                width: 512pt;
+                top: 20pt;
+                height: 60pt;
+            }
+            @frame content_frame {
+                /* Content Frame */
+                left: 50pt; width: 512pt; top: 80pt; height: 632pt;
+            }
+            @frame footer_frame {
+                /* Another static Frame */
+                -pdf-frame-content:footer_content;
+                left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- Content for Static Frame 'header_frame' -->
+<div id="header_content" style="text-align: center; margin: 0; padding: 0; float:left">
+    <p style="color: darkblue; font-size: 12px">Luca Romagnoli</p>
+    <p style="color: darkblue; font-size: 8px">Conceptual Machines LTD</p>
+    <p>4 Deptford Ferry Road - E143GZ London (UK)</p>
+    <p>+44 7503 627335</p>
+</div>
+
+<!-- Content for Static Frame 'footer_frame' -->
+<div id="footer_content">(c) - page
+    <pdf:pagenumber>
+        of
+        <pdf:pagecount>
+</div>
+<div>
+    {% for experience in experiences %}
+        <div style="margin: 0">
+            <table>
+                <tr style="border-top: solid;border-bottom: solid;border-color: lightgrey; background-color: ghostwhite">
+                    <td style="border-left: solid; border-color: lightgrey">{{ experience.period }}</td>
+                    <td>{{ experience.role }}</td>
+                    <td style="border-right: solid; border-color: lightgrey">
+                        <a href="{{ experience.company_url }}" target="_blank">
+                            {{ experience.company_name }}
+                        </a>
+                    </td>
+                </tr>
+                <tr style="border-left: solid; border-right: solid; border-bottom: solid; border-color: lightgrey">
+                    <td colspan="3">
+                        {{ experience.description }}
+                    </td>
+                </tr>
+                <tr style="border-left: solid; border-right: solid; border-color: lightgrey; background-color: ghostwhite">
+                    <td colspan="3">Tech Stack</td>
+                </tr>
+                {% for tech, libraries in experience.tech_stack_as_string %}
+                    {% if forloop.last %}
+                        <tr style="border-bottom: solid; border-color: lightgrey; background-color: ghostwhite">
+                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">
+                                {{ tech }}
+                            </td>
+                            <td style="border-right: solid;  border-color: lightgrey" colspan="2">
+                                {{ libraries }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr style="background-color: ghostwhite">
+                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">
+                                {{ tech }}
+                            </td>
+                            <td style="border-right: solid; border-color: lightgrey" colspan="2">
+                                {{ libraries }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <p class="separator">&nbsp;<p>
+    {% endfor %}
+
+</div>
+
+
+</body>
+</html>
