@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponse, BadHeaderError
 from django.shortcuts import render, redirect
@@ -22,14 +23,6 @@ def history(request):
     return render(request, template, context)
 
 
-def generate_pdf(request):
-    experiences = Experience.objects.all()
-
-    context = {"experiences": experiences}
-    pdf = html_to_pdf("pdf_template.html", context)
-    return HttpResponse(pdf, content_type="application/pdf")
-
-
 def contact(request):
     if request.method == "GET":
         form = ContactForm()
@@ -44,9 +37,21 @@ def contact(request):
                 send_mail(subject, message, email, [settings.ADMIN_EMAIL])
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
-            return redirect("success")
+            messages.success(request, "Thanks for your message!")
+            return redirect("profile")
     return render(request, "contact.html", {"form": form})
 
 
-def success(request):
-    return HttpResponse("Thanks for your message!")
+def download_pdf(request):
+    template = "history.html"
+    experiences = Experience.objects.all()
+    context = {"experiences": experiences}
+    return render(request, template, context)
+
+
+def generate_pdf(request):
+    experiences = Experience.objects.all()
+
+    context = {"experiences": experiences}
+    pdf = html_to_pdf("pdf_template.html", context)
+    return HttpResponse(pdf, content_type="application/pdf")
