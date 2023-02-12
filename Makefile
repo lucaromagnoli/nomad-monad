@@ -85,3 +85,6 @@ heroku-migrate:
 
 heroku-migrations:
 	heroku run python manage.py makemigrations
+
+heroku-migrate-sync:
+	heroku run python manage.py migrate --run-syncdb
