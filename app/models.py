@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Experience(models.Model):
-    unique_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    unique_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     company_name: str = models.CharField(max_length=30)
     company_url: str = models.CharField(max_length=30)
     start_date: datetime.date = models.DateField()
