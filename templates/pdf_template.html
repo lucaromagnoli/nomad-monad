@@ -96,27 +96,27 @@
                 <tr style="border-left: solid; border-right: solid; border-color: lightgrey; background-color: ghostwhite">
                     <td colspan="3">Tech Stack</td>
                 </tr>
-                {% for tech, libraries in experience.tech_stack_as_string %}
-                    {% if forloop.last %}
-                        <tr style="border-bottom: solid; border-color: lightgrey; background-color: ghostwhite">
-                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">
-                                {{ tech }}
-                            </td>
-                            <td style="border-right: solid;  border-color: lightgrey" colspan="2">
-                                {{ libraries }}
-                            </td>
-                        </tr>
-                    {% else %}
-                        <tr style="background-color: ghostwhite">
-                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">
-                                {{ tech }}
-                            </td>
-                            <td style="border-right: solid; border-color: lightgrey" colspan="2">
-                                {{ libraries }}
-                            </td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
+{#                {% for tech, libraries in experience.tech_stack_as_string %}#}
+{#                    {% if forloop.last %}#}
+{#                        <tr style="border-bottom: solid; border-color: lightgrey; background-color: ghostwhite">#}
+{#                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">#}
+{#                                {{ tech }}#}
+{#                            </td>#}
+{#                            <td style="border-right: solid;  border-color: lightgrey" colspan="2">#}
+{#                                {{ libraries }}#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    {% else %}#}
+{#                        <tr style="background-color: ghostwhite">#}
+{#                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">#}
+{#                                {{ tech }}#}
+{#                            </td>#}
+{#                            <td style="border-right: solid; border-color: lightgrey" colspan="2">#}
+{#                                {{ libraries }}#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
             </table>
         </div>
         <p class="separator">&nbsp;<p>
