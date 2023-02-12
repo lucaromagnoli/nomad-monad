@@ -24,6 +24,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://lucaromagnoli-resume.netlify.app/",
+]
+
 
 # Application definition
 
