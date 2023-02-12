@@ -28,6 +28,7 @@ django==4.1.5
     #   dj-database-url
     #   django-bootstrap-icons
     #   django-bootstrap5
+    #   django-cors-headers
     #   djangorestframework
     #   resume (pyproject.toml)
 django-active-link==0.1.8
@@ -35,6 +36,8 @@ django-active-link==0.1.8
 django-bootstrap-icons==0.8.2
     # via resume (pyproject.toml)
 django-bootstrap5==22.2
+    # via resume (pyproject.toml)
+django-cors-headers==3.13.0
     # via resume (pyproject.toml)
 django-rest-framework==0.1.0
     # via resume (pyproject.toml)
