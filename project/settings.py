@@ -25,7 +25,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = [
-    "lucaromagnoli-resume.netlify.app",
+    "netlify.app",
 ]
 
 
