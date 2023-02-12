@@ -6,6 +6,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", lambda req: redirect("/profile")),
     path("", include("app.urls")),
+    path('', lambda req: redirect('/api')),
 ]

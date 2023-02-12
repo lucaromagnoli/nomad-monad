@@ -1,9 +1,14 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+
 from app import views
 
+router = routers.DefaultRouter()
+router.register(r'experiences', views.ExperienceViewSet)
+
+
 urlpatterns = [
-    path("profile", views.profile, name="profile"),
-    path("history", views.history, name="history"),
-    path("contact", views.contact, name="contact"),
-    path("pdf", views.generate_pdf, name="pdf"),
+    path('api/', include(router.urls)),
+    path('', include('rest_framework.urls', namespace='rest_framework')),
+    path("pdf/", views.generate_pdf, name="pdf"),
 ]
