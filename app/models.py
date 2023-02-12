@@ -1,16 +1,18 @@
 import datetime
+import uuid
 
 from django.db import models
 
 
 class Experience(models.Model):
-    company_name = models.CharField(max_length=30)
-    company_url = models.CharField(max_length=30)
-    start_date = models.DateField()
-    end_date = models.DateField()
-    role = models.CharField(max_length=30)
-    description = models.TextField()
-    technologies: dict = models.JSONField(blank=True, null=True)
+    unique_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    company_name: str = models.CharField(max_length=30)
+    company_url: str = models.CharField(max_length=30)
+    start_date: datetime.date = models.DateField()
+    end_date: datetime.date = models.DateField()
+    role: str = models.CharField(max_length=30)
+    description: str = models.TextField()
+    technologies: list = models.JSONField(blank=True, null=True)
 
     class Meta:
         ordering = ["-start_date"]
@@ -29,18 +31,14 @@ class Experience(models.Model):
 
     @property
     def tech_stack(self):
-        sorted_items = sorted(
-            self.technologies.items(), key=lambda tech: tech[1]["order"]
-        )
+        sorted_items = sorted(self.technologies, key=lambda tech: tech["order"])
         for tech_item in sorted_items:
             tech_name, tech_config = tech_item
             yield tech_name, tech_config.get("libraries", [])
 
     @property
     def tech_stack_as_string(self):
-        sorted_items = sorted(
-            self.technologies.items(), key=lambda tech: tech[1]["order"]
-        )
+        sorted_items = sorted(self.technologies, key=lambda tech: tech["order"])
         for tech_item in sorted_items:
             tech_name, tech_config = tech_item
             yield tech_name, " ".join(tech_config.get("libraries", []))
