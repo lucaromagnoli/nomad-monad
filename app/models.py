@@ -4,7 +4,24 @@ import uuid
 from django.db import models
 
 
-class BaseSection(models.Model):
+class SingletonModel(models.Model):
+    class Meta:
+        abstract = True
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super(SingletonModel, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        obj, created = cls.objects.get_or_create(pk=1)
+        return obj
+
+
+class BaseSection(SingletonModel):
     text: str = models.TextField()
     images: list = models.JSONField(blank=True, null=True)
     links: list = models.JSONField(blank=True, null=True)
