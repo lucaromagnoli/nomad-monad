@@ -13,9 +13,15 @@ class BaseSection(models.Model):
 class Home(BaseSection):
     """Home Section"""
 
+    def __str__(self):
+        return "Home"
+
 
 class Profile(BaseSection):
     """Profile Section"""
+
+    def __str__(self):
+        return "Profile"
 
 
 class Experience(models.Model):

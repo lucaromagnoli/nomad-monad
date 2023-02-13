@@ -8,7 +8,7 @@ from rest_framework.mixins import (
 from rest_framework.permissions import BasePermission, SAFE_METHODS, IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
-from app.models import Experience, Profile
+from app.models import Experience, Profile, Home
 from .render import html_to_pdf
 from .serializers import ExperienceSerializer, ProfileSerializer
 
@@ -23,6 +23,22 @@ def generate_pdf(request):
     context = {"experiences": experiences, "url": request.build_absolute_uri()}
     pdf = html_to_pdf("pdf_template.html", context)
     return HttpResponse(pdf, content_type="application/pdf")
+
+
+class HomeViewSet(
+    GenericViewSet,
+    CreateModelMixin,
+    RetrieveModelMixin,
+    UpdateModelMixin,
+    ListModelMixin,
+):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+
+    permission_classes = [IsAuthenticated | ReadOnly]
+    queryset = Home.objects.all()
+    serializer_class = ProfileSerializer
 
 
 class ProfileViewSet(
