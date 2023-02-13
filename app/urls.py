@@ -5,6 +5,7 @@ from app import views
 
 router = routers.DefaultRouter()
 router.register(r"experiences", views.ExperienceViewSet)
+router.register(r"profile", views.ExperienceViewSet)
 
 
 urlpatterns = [
