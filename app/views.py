@@ -35,10 +35,10 @@ def generate_pdf(request):
         "pdf_url": pdf_url,
     }
     pdf = html_to_pdf("pdf_template.html", context)
-    response =  HttpResponse(pdf, content_type="application/pdf")
+    response = HttpResponse(pdf, content_type="application/pdf")
     today = datetime.datetime.now()
     filename = f"{settings.MY_NAME}_CV_{today.date()}"
-    response['Content-Disposition'] = f"attachment; filename={filename}"
+    response["Content-Disposition"] = f"attachment; filename={filename}"
     return response
 
 
