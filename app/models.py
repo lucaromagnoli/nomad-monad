@@ -69,15 +69,6 @@ class Experience(models.Model):
         return f"{start} to {end}"
 
     @property
-    def tech_stack(self):
-        sorted_items = sorted(self.technologies, key=lambda tech: tech["order"])
-        for tech_item in sorted_items:
-            tech_name, tech_config = tech_item
-            yield tech_name, tech_config.get("libraries", [])
-
-    @property
-    def tech_stack_as_string(self):
-        sorted_items = sorted(self.technologies, key=lambda tech: tech["order"])
-        for tech_item in sorted_items:
-            tech_name, tech_config = tech_item
-            yield tech_name, " ".join(tech_config.get("libraries", []))
+    def technologies_as_string(self):
+        for tech in self.technologies:
+            yield tech["name"], " ".join(tech.get("libraries", []))

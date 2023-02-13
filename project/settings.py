@@ -146,3 +146,11 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
 }
+
+FRONTEND_URI = os.environ.get("FRONTEND_URI")
+MY_NAME = os.environ.get("MY_NAME")
+MY_COMPANY = os.environ.get("MY_COMPANY")
+MY_ADDRESS = os.environ.get("MY_ADDRESS")
+MY_MOBILE = os.environ.get("MY_MOBILE")
+MY_PERSONAL_EMAIL = os.environ.get("MY_PERSONAL_EMAIL")
+MY_LINKEDIN = os.environ.get("MY_LINKEDIN")

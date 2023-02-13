@@ -9,6 +9,7 @@ from rest_framework.permissions import BasePermission, SAFE_METHODS, IsAuthentic
 from rest_framework.viewsets import GenericViewSet
 
 from app.models import Experience, Profile, Home
+from project import settings
 from .render import html_to_pdf
 from .serializers import ExperienceSerializer, ProfileSerializer
 
@@ -20,7 +21,18 @@ class ReadOnly(BasePermission):
 
 def generate_pdf(request):
     experiences = Experience.objects.all()
-    context = {"experiences": experiences, "url": request.build_absolute_uri()}
+    pdf_url = f"{settings.FRONTEND_URI}/pdf"
+    context = {
+        "experiences": experiences,
+        "url": request.build_absolute_uri(),
+        "name": settings.MY_NAME,
+        "company": settings.MY_COMPANY,
+        "mobile": settings.MY_MOBILE,
+        "address": settings.MY_ADDRESS,
+        "personal_email": settings.MY_PERSONAL_EMAIL,
+        "linkedin": settings.MY_LINKEDIN,
+        "pdf_url": pdf_url,
+    }
     pdf = html_to_pdf("pdf_template.html", context)
     return HttpResponse(pdf, content_type="application/pdf")
 

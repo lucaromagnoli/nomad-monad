@@ -30,7 +30,7 @@
                 left: 50pt;
                 width: 512pt;
                 top: 20pt;
-                height: 60pt;
+                height: 120pt;
             }
             @frame content_frame {
                 /* Content Frame */
@@ -48,10 +48,10 @@
 <body>
 <!-- Content for Static Frame 'header_frame' -->
 <div id="header_content" style="text-align: center; margin: 0; padding: 0; float:left">
-    <p style="color: darkblue; font-size: 12px">Luca Romagnoli</p>
-    <p style="color: darkblue; font-size: 8px">Conceptual Machines LTD</p>
-    <p>4 Deptford Ferry Road - E143GZ London (UK)</p>
-    <p>+44 7503 627335</p>
+    <p style="color: darkblue; font-size: 12px">{{ name }}</p>
+    <p style="color: darkblue; font-size: 8px">{{ company }}</p>
+    <p>{{ address }}</p>
+    <p>{{ mobile }} - {{ personal_email}}  - <a href="https://{{ linkedin }}">{{ linkedin }}</a></p>
 </div>
 
 <!-- Content for Static Frame 'footer_frame' -->
@@ -96,27 +96,27 @@
                 <tr style="border-left: solid; border-right: solid; border-color: lightgrey; background-color: ghostwhite">
                     <td colspan="3">Tech Stack</td>
                 </tr>
-{#                {% for tech, libraries in experience.tech_stack_as_string %}#}
-{#                    {% if forloop.last %}#}
-{#                        <tr style="border-bottom: solid; border-color: lightgrey; background-color: ghostwhite">#}
-{#                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">#}
-{#                                {{ tech }}#}
-{#                            </td>#}
-{#                            <td style="border-right: solid;  border-color: lightgrey" colspan="2">#}
-{#                                {{ libraries }}#}
-{#                            </td>#}
-{#                        </tr>#}
-{#                    {% else %}#}
-{#                        <tr style="background-color: ghostwhite">#}
-{#                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">#}
-{#                                {{ tech }}#}
-{#                            </td>#}
-{#                            <td style="border-right: solid; border-color: lightgrey" colspan="2">#}
-{#                                {{ libraries }}#}
-{#                            </td>#}
-{#                        </tr>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
+                {% for tech_name, tech_libraries in experience.technologies_as_string %}
+                    {% if forloop.last %}
+                        <tr style="border-bottom: solid; border-color: lightgrey; background-color: ghostwhite">
+                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">
+                                {{ tech_name }}
+                            </td>
+                            <td style="border-right: solid;  border-color: lightgrey" colspan="2">
+                                {{ tech_libraries }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr style="background-color: ghostwhite">
+                            <td style="border-left: solid;  border-color: lightgrey" colspan="1">
+                                {{ tech_name }}
+                            </td>
+                            <td style="border-right: solid; border-color: lightgrey" colspan="2">
+                                {{ tech_libraries }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
             </table>
         </div>
         <p class="separator">&nbsp;<p>
