@@ -162,9 +162,7 @@ tomli==2.0.1
     #   pytest
 typing-extensions==4.4.0
     # via
-    #   black
     #   mypy
-    #   pypdf
     #   qrcode
 tzdata==2022.7
     # via pytz-deprecation-shim

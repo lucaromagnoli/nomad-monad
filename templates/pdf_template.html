@@ -63,8 +63,8 @@
             </td>
             <td>
                 <p style="font-size: 8px">Get the most up-to-date version of my CV at
-                    <a href="{{ url }}" target="_blank">
-                        {{ url }}
+                    <a href="{{ pdf_url }}" target="_blank">
+                        {{ pdf_url }}
                     </a>
 
                 </p>
@@ -90,7 +90,9 @@
                 </tr>
                 <tr style="border-left: solid; border-right: solid; border-bottom: solid; border-color: lightgrey">
                     <td colspan="3">
-                        {{ experience.description }}
+                        {% autoescape off %}
+                            {{ experience.description }}
+                        {% endautoescape %}
                     </td>
                 </tr>
                 <tr style="border-left: solid; border-right: solid; border-color: lightgrey; background-color: ghostwhite">

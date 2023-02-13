@@ -21,10 +21,9 @@ class ReadOnly(BasePermission):
 
 def generate_pdf(request):
     experiences = Experience.objects.all()
-    pdf_url = f"{settings.FRONTEND_URI}/pdf"
+    pdf_url = f"{request.build_absolute_uri()}/pdf"
     context = {
         "experiences": experiences,
-        "url": request.build_absolute_uri(),
         "name": settings.MY_NAME,
         "company": settings.MY_COMPANY,
         "mobile": settings.MY_MOBILE,
