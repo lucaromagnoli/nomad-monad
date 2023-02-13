@@ -4,7 +4,23 @@ import uuid
 from django.db import models
 
 
+class BaseSection(models.Model):
+    text: str = models.TextField()
+    images: list = models.JSONField(blank=True, null=True)
+    links: list = models.JSONField(blank=True, null=True)
+
+
+class Home(BaseSection):
+    """Home Section"""
+
+
+class Profile(BaseSection):
+    """Profile Section"""
+
+
 class Experience(models.Model):
+    """Work Section"""
+
     unique_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     company_name: str = models.CharField(max_length=30)
     company_url: str = models.CharField(max_length=30)
