@@ -1,5 +1,3 @@
-# Luca Romagnoli - Resume
+# Resume Backend
 
-My online web resume.
-
-Nothing too fancy here, just a simple Django app.
+The backend code for my online resume
